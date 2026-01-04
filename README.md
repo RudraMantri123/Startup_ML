@@ -2,46 +2,50 @@
 
 **Author:** Rudra Mantri
 
-Startup valuation is a crucial and often complex process, as it involves predicting the future potential and success of a company that is still in its early stages of growth. Traditional methods of valuation such as the discounted cash flow method and the Berkus approach can be time-consuming and subjective. To assist startup investors with their decisions, in this project I aim to find the important features that lead to startup success and provide an API for forecasting a company's valuation with supervised machine learning methods.
+A machine learning-powered application that predicts startup valuations using XGBoost regression. This project leverages AWS SageMaker for model training and deployment, providing both a REST API and a web interface for startup valuation predictions.
 
-## File structure explanation
+## Overview
+
+Startup valuation is a crucial and often complex process, as it involves predicting the future potential and success of a company that is still in its early stages of growth. Traditional methods of valuation such as the discounted cash flow method and the Berkus approach can be time-consuming and subjective. This project aims to find the important features that lead to startup success and provide an API for forecasting a company's valuation with supervised machine learning methods.
+
+## Project Structure
 
 ```
-├───client
-│   ├───public
-│   └───src
-│       ├───components
-│       └───images
-├───data
-├───model
-├───pictures
-└───scripts
+├───client/          # React frontend application
+│   ├───public/      # Static assets
+│   └───src/         # React source code
+│       ├───components/  # React components
+│       └───images/       # Image assets
+├───data/            # CSV datasets for training and testing
+├───model/           # Jupyter notebook for model training
+├───pictures/        # Images used in documentation
+└───scripts/         # Python utility scripts
+    ├── data_cleaner.py      # Data preprocessing script
+    └── lambda_function.py   # AWS Lambda handler for API
 ```
-/client
- - frontend source code
- 
-/data
- - data csv files for modeling 
 
-/model
- - code for training model
- 
-/pictures
- - pictures used in this readme
+## Tech Stack
 
-/scripts
- - data cleaning script: clean data from crunchbase dataset
- - lambda function script: process result from API endpoint and relay to AWS sagemaker model for prediction
+### Frontend
+- **React** - User interface framework
+- **React Router** - Client-side routing
+- **Axios** - HTTP client for API requests
 
-## Tech stack
+### Backend & ML
+- **Python** - Core programming language
+- **Pandas** - Data manipulation and analysis
+- **XGBoost** - Gradient boosting machine learning model
+- **Scikit-Learn** - Machine learning utilities
+- **Jupyter Notebook** - Model development environment
 
-**Data cleaning**: Pandas
+### Cloud Infrastructure
+- **AWS SageMaker** - Model training and deployment
+- **AWS Lambda** - Serverless compute for API
+- **AWS API Gateway** - REST API management
+- **AWS S3** - Model and data storage
+- **AWS CloudWatch** - Logging and monitoring
 
-**Machine Learning**: Scikit-Learn, Jupyter Notebook, AWS SageMaker
-
-**Deployment**: AWS Lambda, AWS API Gateway, AWS S3, AWS CloudWatch
-
-## Code explanation
+## Methodology
 
 <img src="./pictures/Machine Learning Pipeline.png" alt="Machine Learning Pipeline" width="1000" height="400" border="10" />
 
@@ -90,12 +94,32 @@ During my development on AWS Cloud environment, I also utilized the AWS CloudWat
 
 <img src="./pictures/Startup-Valuation-Interface.png" alt="Startup Valuation Prediction Interface" width="800" height="600" />
 
-To try out my endpoint, you can import the Postman collection located at: [https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json](https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json).
-
-The above collection includes a sample request body and makes a POST request to my endpoint!
+### API Endpoint
 
 The API is located at: [https://qw16rmz5wa.execute-api.ap-southeast-1.amazonaws.com/api/startupvaluationprediction](https://qw16rmz5wa.execute-api.ap-southeast-1.amazonaws.com/api/startupvaluationprediction)
+
+### Testing with Postman
+
+To try out the endpoint, you can import the Postman collection located at: [Postman Collection](https://github.com/RudraMantri123/Startup_ML/blob/main/StartupValuationPrediction.postman_collection.json).
+
+The collection includes a sample request body and makes a POST request to the endpoint.
+
+## Key Features
+
+- **Machine Learning Model**: XGBoost regression model with RMSE of ~0.13
+- **RESTful API**: Serverless API built with AWS Lambda and API Gateway
+- **Web Interface**: Interactive React-based frontend for easy predictions
+- **Scalable Architecture**: Auto-scaling configured for high throughput (2000 requests/second)
+- **Feature Engineering**: Comprehensive feature selection including funding rounds, team size, and financial history
+
+## Results
+
+The model achieved a root mean square error (RMSE) of approximately 0.13 on the test set, which demonstrates satisfactory predictive performance for startup valuation estimation.
 
 ## References
 
 Garkavenko, M., Mirisaee, H., Gaussier, É., Guerraz, A., & Lagnier, C. (2021). Valuation of Startups: A Machine Learning Perspective. ECIR.
+
+## License
+
+This project is open source and available for educational purposes.
