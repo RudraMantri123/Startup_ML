@@ -1,3 +1,10 @@
+/**
+ * Startup Valuation Prediction App
+ * Author: Rudra Mantri
+ * 
+ * Main React application component for startup valuation prediction using machine learning.
+ */
+
 import './App.css';
 import { useState } from 'react';
 import SidebarWrapper from './components/sidebar';

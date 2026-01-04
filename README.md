@@ -1,6 +1,8 @@
 # Startup Valuation with Machine Learning
 
-Startup valuation is a crucial and often complex process, as it involves predicting the future potential and success of a company that is still in its early stages of growth. Traditional methods of valuation such as the discounted cash flow method and the Berkus approach can be time-consuming and subjective. To assist startup investors with their decisions, in this project we aim to find the important features that lead to startup success and provide an API for forecasting a company’s valuation with supervised machine learning methods.
+**Author:** Rudra Mantri
+
+Startup valuation is a crucial and often complex process, as it involves predicting the future potential and success of a company that is still in its early stages of growth. Traditional methods of valuation such as the discounted cash flow method and the Berkus approach can be time-consuming and subjective. To assist startup investors with their decisions, in this project I aim to find the important features that lead to startup success and provide an API for forecasting a company's valuation with supervised machine learning methods.
 
 ## File structure explanation
 
@@ -47,11 +49,11 @@ Startup valuation is a crucial and often complex process, as it involves predict
 
 Initial data sourced through kaggle https://www.kaggle.com/datasets/justinas/startup-investments from Crunchbase 2013 Snapshot © 2013
 
-Much of the data however, was unusable because the target variable (i.e. the valuation of the startup) was not provided hence our eventual dataset consisted of just below 1000 data points. However, we believe this is adequate to train a reliable model.
+Much of the data however, was unusable because the target variable (i.e. the valuation of the startup) was not provided hence my eventual dataset consisted of just below 1000 data points. However, I believe this is adequate to train a reliable model.
 
 ### Cleaning / Preprocessing
 
-Using Pandas, the tables from the datasets were merged to give the input for modeling, with columns that we find useful to the model. The features used are as shown below:
+Using Pandas, the tables from the datasets were merged to give the input for modeling, with columns that I find useful to the model. The features used are as shown below:
 
 | Category | Features |
 | --- | --- |
@@ -62,36 +64,35 @@ Using Pandas, the tables from the datasets were merged to give the input for mod
 
 ### Modeling
 
-Modelling the startup valuation is a complex problem where the variables utilized have to be carefully handpicked. As such, we took reference to a written research paper: Valuation of Startups: A Machine Learning Perspective. It discussed how they used 3 different types of models to predict the valuation of the startups, including multilayer perceptrons, Domain Adaptation Neural Networks and CatBoost. It eventually concluded that CatBoost gave the best results, hence we decided to go with a similar gradient boosting method, XGBoost.
+Modelling the startup valuation is a complex problem where the variables utilized have to be carefully handpicked. As such, I took reference to a written research paper: Valuation of Startups: A Machine Learning Perspective. It discussed how they used 3 different types of models to predict the valuation of the startups, including multilayer perceptrons, Domain Adaptation Neural Networks and CatBoost. It eventually concluded that CatBoost gave the best results, hence I decided to go with a similar gradient boosting method, XGBoost.
 
-From there, we also decided to utilize data that revolves around a funding round of the said startup, with a disclosed funding amount provided. 
+From there, I also decided to utilize data that revolves around a funding round of the said startup, with a disclosed funding amount provided. 
 
-We divided the data into training and test sets, with a test_size of 0.2 so that we could conduct validation tests on the test sets subsequently.
+I divided the data into training and test sets, with a test_size of 0.2 so that I could conduct validation tests on the test sets subsequently.
 
-Eventually, we achieved an eventual root mean square error (rmse) of approximately 0.13, which we consider to be satisfactory.
+Eventually, I achieved an eventual root mean square error (rmse) of approximately 0.13, which I consider to be satisfactory.
 
-The model was then deployed into the AWS S3 bucket for us to retrieve to use on the API.
+The model was then deployed into the AWS S3 bucket for me to retrieve to use on the API.
 
 ### Deployment
 
-Deployment of our application was made possible with the use of AWS Lambda and API Gateway. By utilizing AWS Lambda, we were able to create a serverless environment for the endpoint generated using AWS Sagemaker.
+Deployment of my application was made possible with the use of AWS Lambda and API Gateway. By utilizing AWS Lambda, I was able to create a serverless environment for the endpoint generated using AWS Sagemaker.
 
-Furthermore, we utilized AWS API Gateway to establish a REST API. When a POST request is received, the API Gateway triggers the corresponding Lambda function, which houses the logic for making predictions using our model. The API Gateway then returns the output from the Lambda function to the client, providing a smooth and efficient process.
+Furthermore, I utilized AWS API Gateway to establish a REST API. When a POST request is received, the API Gateway triggers the corresponding Lambda function, which houses the logic for making predictions using my model. The API Gateway then returns the output from the Lambda function to the client, providing a smooth and efficient process.
 
-Next, to make the Machine Learning model scalable, we leverage the auto scaling feature in AWS so that multiple investors can access the endpoint with low latency. We have decided to perform a theoretical calculation and derived an assumption that there are around 125,000 active investors worldwide every minute which equates to 2,000 requests per seconds. Hence, the target value is 2,000 as shown below.
+Next, to make the Machine Learning model scalable, I leverage the auto scaling feature in AWS so that multiple investors can access the endpoint with low latency. I have decided to perform a theoretical calculation and derived an assumption that there are around 125,000 active investors worldwide every minute which equates to 2,000 requests per seconds. Hence, the target value is 2,000 as shown below.
 
-During our team development on AWS Cloud environment, we also utilized the AWS CloudWatch logs to debug for errors and fixed our errors eventually along the way.
+During my development on AWS Cloud environment, I also utilized the AWS CloudWatch logs to debug for errors and fixed my errors eventually along the way.
  
  <img src="./pictures/Autoscaling.png" alt="autoscaling" width="640" height="320" border="10" />
 
 ## Usage
 
-![image](https://user-images.githubusercontent.com/60027105/215099646-22e7e074-fab5-4fcd-b253-361354def25d.png)
-The frontend is located at: [https://finkers.onrender.com/](https://finkers.onrender.com/)
+<img src="./pictures/Startup-Valuation-Interface.png" alt="Startup Valuation Prediction Interface" width="800" height="600" />
 
-To try out our endpoint, you can import the Postman collection located at: [https://github.com/kaixiangtay/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json](https://github.com/kaixiangtay/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json).
+To try out my endpoint, you can import the Postman collection located at: [https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json](https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json).
 
-The above collection includes a sample request body and makes a POST request to our endpoint!
+The above collection includes a sample request body and makes a POST request to my endpoint!
 
 The API is located at: [https://qw16rmz5wa.execute-api.ap-southeast-1.amazonaws.com/api/startupvaluationprediction](https://qw16rmz5wa.execute-api.ap-southeast-1.amazonaws.com/api/startupvaluationprediction)
 

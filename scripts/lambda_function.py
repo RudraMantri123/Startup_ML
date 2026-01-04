@@ -1,3 +1,11 @@
+"""
+AWS Lambda Function for Startup Valuation Prediction
+Author: Rudra Mantri
+
+This Lambda function processes API requests and relays them to AWS SageMaker
+endpoint for startup valuation predictions.
+"""
+
 import os
 import io
 import boto3

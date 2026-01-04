@@ -9,11 +9,11 @@ function ApiPage() {
           <p>
             To try out our endpoint, you can import the Postman collection located at:
             <a
-              href='https://github.com/kaixiangtay/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json'
+              href='https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json'
               target='_blank'
               rel='noopener noreferrer'>
               {' '}
-              https://github.com/kaixiangtay/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json
+              https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning/blob/main/StartupValuationPrediction.postman_collection.json
             </a>
           </p>
           <br></br>

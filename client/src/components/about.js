@@ -16,50 +16,20 @@ function About(props) {
             value startups, by using a few different ML models to compare and predict its valuation. Check out the full
             documentation on GitHub here:
             <a
-              href='https://github.com/kaixiangtay/Startup-Valuation-with-Machine-Learning'
+              href='https://github.com/rudramantri/Startup-Valuation-with-Machine-Learning'
               target='_blank'
               rel='noopener noreferrer'>
               {' '}
-              github.com/kaixiangtay/Startup-Valuation-with-Machine-Learning
+              github.com/rudramantri/Startup-Valuation-with-Machine-Learning
             </a>
           </p>
         </div>
         <div className='prediction'>
-          <h2>The Team</h2>
+          <h2>About the Author</h2>
           <br />
-          <p>We are a team of 1 Data Science and 3 Computer Science nerds from NUS. Check us out:</p>
-          <h3>Aengus</h3>
-          <a
-            href='https://www.linkedin.com/in/aengus-leman-b747861b6/'
-            target='_blank'
-            rel='noopener noreferrer'>
-            {' '}
-            https://www.linkedin.com/in/aengus-leman-b747861b6/
-          </a>
-          <h3>Simran</h3>
-          <a
-            href='https://www.linkedin.com/in/simran-bhadani-aba052195/'
-            target='_blank'
-            rel='noopener noreferrer'>
-            {' '}
-            https://www.linkedin.com/in/simran-bhadani-aba052195/
-          </a>
-          <h3>Junxue</h3>
-          <a
-            href='https://www.linkedin.com/in/lim-junxue/'
-            target='_blank'
-            rel='noopener noreferrer'>
-            {' '}
-            https://www.linkedin.com/in/lim-junxue/
-          </a>
-          <h3>Kai Xiang</h3>
-          <a
-            href='https://www.linkedin.com/in/kai-xiang-tay/'
-            target='_blank'
-            rel='noopener noreferrer'>
-            {' '}
-            https://www.linkedin.com/in/kai-xiang-tay/
-          </a>
+          <p>This project was created by:</p>
+          <h3>Rudra Mantri</h3>
+          <p>Developer and Machine Learning Engineer</p>
         </div>
       </div>
     </main>

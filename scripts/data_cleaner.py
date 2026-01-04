@@ -1,3 +1,11 @@
+"""
+Data Cleaning Script for Startup Valuation Dataset
+Author: Rudra Mantri
+
+This script processes and cleans data from the Crunchbase 2013 Snapshot dataset
+to prepare it for machine learning model training.
+"""
+
 import pandas as pd
 
 # initial data sourced through kaggle https://www.kaggle.com/datasets/justinas/startup-investments from Crunchbase 2013 Snapshot © 2013
